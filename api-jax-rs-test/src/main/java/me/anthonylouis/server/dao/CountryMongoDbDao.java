@@ -30,6 +30,12 @@ public class CountryMongoDbDao implements CountryDao {
     return null;
   }
 
+  /**
+   * Parse a Mongo's document to object with country metadata
+   *
+   * @param document the object representation retrieved from MongoDB
+   * @return an object with country metadata
+   */
   private Optional<Country> parseMongoDocumentToObject(final Document document) {
     if (document == null) {
       return empty();

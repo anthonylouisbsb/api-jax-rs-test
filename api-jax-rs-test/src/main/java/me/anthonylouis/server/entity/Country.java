@@ -72,6 +72,10 @@ public class Country {
     this.minLongitude = minLongitude;
   }
 
+  public static Builder getBuilder() {
+    return new Builder();
+  }
+
   public static class Builder {
 
     private int id = 0;

@@ -9,24 +9,26 @@ import java.util.Optional;
 /**
  * Is responsible to handle the connection with MongoDB database.
  */
-public class MongoDBClient implements Closeable {
+public enum MongoDBClient implements Closeable {
 
-  private static MongoDatabase dataSource;
+  INSTANCE;
+
+  private MongoDatabase dataSource;
 
   /*Represents the connection session between program and MongoDB data source.*/
-  private static Optional<MongoClient> mongoDbClient = Optional.empty();
+  private Optional<MongoClient> mongoDbClient = Optional.empty();
 
   /**
    * Gets the database used to insert data on MongoD
-   *
+   * <p>
    * It ensures that program is connected with MongoDB.
    *
    * @return the database used to insert api data inside MongoDB
    */
-  public static MongoDatabase getDatabase() {
-    synchronized (dataSource){
-      if (dataSource == null){
-        mongoDbClient= Optional.of(new MongoClient());
+  public MongoDatabase getDatabase() {
+    synchronized (dataSource) {
+      if (dataSource == null) {
+        mongoDbClient = Optional.of(new MongoClient());
 
         dataSource = mongoDbClient
             .map(client -> client.getDatabase("api-jax-rs"))

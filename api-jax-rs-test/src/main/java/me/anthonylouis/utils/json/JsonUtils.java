@@ -11,7 +11,6 @@ public enum JsonUtils {
 
   private final ObjectMapper objectMapper = new ObjectMapper();
 
-
   /**
    * Serialize an object to a JSON string
    *

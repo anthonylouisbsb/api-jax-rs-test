@@ -55,7 +55,7 @@ public class CountryMongoDbDao implements CountryDao {
         .withMaxLatitude(maxLatitude)
         .withMinLatitude(minLatitude)
         .withMaxLongitude(maxLongitude)
-        .withMinLatitude(minLatitude)
+        .withMinLongitude(minLongitude)
         .build();
 
     return Optional.of(countryRepresentation);

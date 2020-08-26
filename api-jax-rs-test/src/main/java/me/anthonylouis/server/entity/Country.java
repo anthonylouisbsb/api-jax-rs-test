@@ -1,5 +1,8 @@
 package me.anthonylouis.server.entity;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import me.anthonylouis.utils.json.JsonUtils;
+
 public class Country {
 
   public Country(final int id, final String name, final double maxLatitude,
@@ -74,6 +77,20 @@ public class Country {
 
   public static Builder getBuilder() {
     return new Builder();
+  }
+
+  /**
+   * Serializes the object to JSON
+   *
+   * @return a json representation of the object
+   */
+  public String toJson() {
+    try {
+      return JsonUtils.INSTANCE.writeObjectAsJsonString(this);
+    } catch (final JsonProcessingException exception) {
+      // TODO: add log message explaining about this error
+      return "";
+    }
   }
 
   public static class Builder {

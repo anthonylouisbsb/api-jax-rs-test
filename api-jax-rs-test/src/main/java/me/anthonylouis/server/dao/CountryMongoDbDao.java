@@ -42,13 +42,13 @@ public class CountryMongoDbDao implements CountryDao {
     }
 
     final int countryId = document.getInteger("id");
-    final String name = document.getString("name");
+    final var name = document.getString("name");
     final double maxLatitude = document.getDouble("max-latitude");
     final double minLatitude = document.getDouble("min-latitude");
     final double maxLongitude = document.getDouble("max-longitude");
     final double minLongitude = document.getDouble("min-longitude");
 
-    final Country countryRepresentation = Country
+    final var countryRepresentation = Country
         .getBuilder()
         .withId(countryId)
         .withName(name)

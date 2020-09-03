@@ -34,7 +34,7 @@ public class CountryMongoDbDao implements CountryDao {
         .getDatabase()
         .getCollection(COUNTRIES_COLLECTION);
 
-    final var countries = new LinkedList<>();
+    final var countries = new LinkedList<Country>();
 
     final var iterator = collection
         .find()
@@ -48,12 +48,9 @@ public class CountryMongoDbDao implements CountryDao {
           .ifPresent(countries::add);
     }
 
-    try {
-      return JsonUtils.INSTANCE.writeObjectAsJsonString(countries);
-    } catch (JsonProcessingException e) {
-      // TODO: add this error on log
-      throw new RuntimeException("Could not parse countries json!", e);
-    }
+    iterator.close();
+
+    return countries;
   }
 
   /**

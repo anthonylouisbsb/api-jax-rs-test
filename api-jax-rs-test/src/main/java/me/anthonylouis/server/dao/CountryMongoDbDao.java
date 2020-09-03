@@ -5,7 +5,6 @@ import static java.util.Optional.empty;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -30,16 +29,17 @@ public class CountryMongoDbDao implements CountryDao {
   }
 
   @Override
-  public String getListOfCountries() {
+  public List<Country> getListOfCountries() {
     final MongoCollection<Document> collection = MongoDBClient.INSTANCE
         .getDatabase()
         .getCollection(COUNTRIES_COLLECTION);
+
+    final var countries = new LinkedList<>();
 
     final var iterator = collection
         .find()
         .iterator();
 
-    final var countries = new LinkedList<>();
 
     while (iterator.hasNext()) {
       final Document countryMetadataFromMongo = iterator.next();

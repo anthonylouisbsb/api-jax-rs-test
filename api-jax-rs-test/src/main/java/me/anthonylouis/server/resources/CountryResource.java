@@ -28,4 +28,14 @@ public class CountryResource {
 
     return ok(countryAsJson, MediaType.APPLICATION_JSON).build();
   }
+
+  @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response getCountries() {
+    final var countryDao = DaoManager.INSTANCE.getCountryDao();
+
+    final String listOfCountriesAsJson = countryDao.getListOfCountries();
+
+    return ok(listOfCountriesAsJson, MediaType.APPLICATION_JSON).build();
+  }
 }

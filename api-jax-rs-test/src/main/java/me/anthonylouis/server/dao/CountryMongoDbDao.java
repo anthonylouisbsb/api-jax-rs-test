@@ -4,7 +4,6 @@ import static com.mongodb.client.model.Filters.eq;
 import static java.util.Optional.empty;
 
 import com.mongodb.client.MongoCollection;
-import java.util.List;
 import java.util.Optional;
 import me.anthonylouis.server.databases.mongodb.MongoDBClient;
 import me.anthonylouis.server.entity.Country;
@@ -26,7 +25,7 @@ public class CountryMongoDbDao implements CountryDao {
   }
 
   @Override
-  public List<Country> getListOfCountries() {
+  public String getListOfCountries() {
     return null;
   }
 

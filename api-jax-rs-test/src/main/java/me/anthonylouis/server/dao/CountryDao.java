@@ -1,6 +1,5 @@
 package me.anthonylouis.server.dao;
 
-import java.util.List;
 import java.util.Optional;
 import me.anthonylouis.server.entity.Country;
 
@@ -18,9 +17,9 @@ public interface CountryDao {
   public Optional<Country> getCountryById(final int id);
 
   /**
-   * Gets all created countries
+   * Gets all created countries, serialized as a string
    *
    * @return all countries stored in database
    */
-  public List<Country> getListOfCountries();
+  public String getListOfCountries();
 }

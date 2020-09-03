@@ -1,6 +1,7 @@
 package me.anthonylouis.server.dao;
 
-import me.anthonylouis.server.utils.system.EnvironmentVariables;
+
+import me.anthonylouis.utils.system.EnvironmentVariables;
 
 /**
  * Handles all DAO's used by the system.

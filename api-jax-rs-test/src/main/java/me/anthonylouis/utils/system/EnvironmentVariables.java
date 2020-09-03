@@ -1,4 +1,4 @@
-package me.anthonylouis.server.utils.system;
+package me.anthonylouis.utils.system;
 
 import javax.validation.constraints.NotNull;
 

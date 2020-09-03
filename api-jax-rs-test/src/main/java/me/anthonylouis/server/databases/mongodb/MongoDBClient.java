@@ -25,15 +25,14 @@ public enum MongoDBClient implements Closeable {
    *
    * @return the database used to insert api data inside MongoDB
    */
-  public MongoDatabase getDatabase() {
-    synchronized (dataSource) {
-      if (dataSource == null) {
-        mongoDbClient = Optional.of(new MongoClient());
+  public synchronized MongoDatabase getDatabase() {
+    if (dataSource == null) {
 
-        dataSource = mongoDbClient
-            .map(client -> client.getDatabase("api-jax-rs"))
-            .orElseThrow(() -> new RuntimeException("Did not find the api-jax-rs database"));
-      }
+      mongoDbClient = Optional.of(new MongoClient());
+
+      dataSource = mongoDbClient
+          .map(client -> client.getDatabase("api-jax-rs"))
+          .orElseThrow(() -> new RuntimeException("Did not find the api-jax-rs database"));
     }
 
     return dataSource;

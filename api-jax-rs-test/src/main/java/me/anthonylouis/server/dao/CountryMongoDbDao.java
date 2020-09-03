@@ -3,14 +3,12 @@ package me.anthonylouis.server.dao;
 import static com.mongodb.client.model.Filters.eq;
 import static java.util.Optional.empty;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mongodb.client.MongoCollection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import me.anthonylouis.server.databases.mongodb.MongoDBClient;
 import me.anthonylouis.server.entity.Country;
-import me.anthonylouis.utils.json.JsonUtils;
 import org.bson.Document;
 
 public class CountryMongoDbDao implements CountryDao {

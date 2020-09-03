@@ -19,7 +19,7 @@ public enum DaoImplementation {
   /**
    * Returns the type of the DAO that must be used by the application
    *
-   * @param usedDatabase the database used by application(mongods, postgres..)
+   * @param usedDatabase the database used by application(mongod, postgres..)
    * @return the object with which DAO instance must be used by the program
    */
   public static DaoImplementation fromString(final String usedDatabase) {

@@ -1,8 +1,11 @@
 package me.anthonylouis.server.entity;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import me.anthonylouis.utils.json.JsonUtils;
 
+@JsonPropertyOrder(alphabetic = true)
 public class Country {
 
   public Country(final int id, final String name, final double maxLatitude,
@@ -27,52 +30,34 @@ public class Country {
 
   private double minLongitude;
 
+  @JsonGetter("id")
   public int getId() {
     return id;
   }
 
-  public void setId(int id) {
-    this.id = id;
-  }
-
+  @JsonGetter("name")
   public String getName() {
     return name;
   }
 
-  public void setName(final String name) {
-    this.name = name;
-  }
-
+  @JsonGetter("max-latitude")
   public double getMaxLatitude() {
     return maxLatitude;
   }
 
-  public void setMaxLatitude(final double maxLatitude) {
-    this.maxLatitude = maxLatitude;
-  }
-
+  @JsonGetter("min-latitude")
   public double getMinLatitude() {
     return minLatitude;
   }
 
-  public void setMinLatitude(final double minLatitude) {
-    this.minLatitude = minLatitude;
-  }
-
+  @JsonGetter("max-longitude")
   public double getMaxLongitude() {
     return maxLongitude;
   }
 
-  public void setMaxLongitude(final double maxLongitude) {
-    this.maxLongitude = maxLongitude;
-  }
-
+  @JsonGetter("min-longitude")
   public double getMinLongitude() {
     return minLongitude;
-  }
-
-  public void setMinLongitude(final double minLongitude) {
-    this.minLongitude = minLongitude;
   }
 
   public static Builder getBuilder() {
